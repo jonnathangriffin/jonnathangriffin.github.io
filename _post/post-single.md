@@ -1,6 +1,6 @@
 ---
 # Page settings
-title: post single # Define a title of your page
+title: testing # Define a title of your page
 description: 1st blog post # Define a description of your page
 keywords: # Define keywords for search engines
 order: 0 # Define order of this page in list of all post posts
@@ -8,8 +8,8 @@ comments: false # Set to "true" in order to enable comments on this page. Make s
 
 # Hero section
 hero:
-    title: post single — Title
-    text: post single — Text
+    title: Title testing
+    text: text testng
 ---
 
 # Testing this out
