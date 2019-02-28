@@ -31,7 +31,7 @@
 		{% endif %}
 		<link rel="icon" href="{% if jekyll.environment == 'production' %}{{ site.dox.baseurl }}{% endif %}/favicon.ico" type="image/x-icon">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|IBM+Plex+Sans:400,400i,500,500i,700,700i">
-		<link rel="stylesheet" href="{% if jekyll.environment == 'production' %}{{ site.dox.baseurl }}{% endif %}/dox-theme/assets/css/style.css">
+		<link rel="stylesheet" href="{% if jekyll.environment == 'production' %}{{ site.dox.baseurl }}{% endif %}/theme/assets/css/style.css">
 	</head>
 	<body>
 		{% if site.dox.header.nav or site.dox.header.cta %}
@@ -79,7 +79,7 @@
 								{% elsif site.dox.header.logo.image %}
 									<div class="c-logo">
 										<a href="{% if jekyll.environment == 'production' %}{{ site.dox.baseurl }}{% endif %}/" class="c-logo__link">
-											<img src="{% if jekyll.environment == 'production' %}{{ site.dox.baseurl }}{% endif %}/dox-theme/assets/images/layout/logo.png">
+											<img src="{% if jekyll.environment == 'production' %}{{ site.dox.baseurl }}{% endif %}/theme/assets/images/layout/logo.png">
 										</a><!-- /.c-logo__link -->
 									</div><!-- /.c-logo -->
 								{% endif %}
