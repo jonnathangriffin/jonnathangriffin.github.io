@@ -1,5 +1,5 @@
 # Theme settings
-dox:
+jg:
     baseurl:
     title: Project Name
     theme_color: '#0976f8' # Define theme primary color with HEX value
@@ -21,7 +21,7 @@ dox:
         logo:
             text: Project name
             image:
-        text: Copyright &copy; 2018. - Project name <br>All rights reserved.
+        text: Copyright &copy; 2019. - Project name <br>All rights reserved.
     google_analytics:
         tracking_code: # Add your Google Analytics tracking code to activate Google Analytics
     comments:
