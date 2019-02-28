@@ -1,6 +1,6 @@
 ---
 # Page settings
-layout: homepage # Choose layout: "default", "homepage" or "post-archive"
+layout: post-archive # Choose layout: "default", "homepage" or "post-archive"
 title: My favorite links # Define a title of your page
 description: news, articles, favorite links # Define a description of your page
 keywords: # Define keywords for search engines
