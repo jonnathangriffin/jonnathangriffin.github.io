@@ -19,16 +19,16 @@
 
 		// For CommonJS and CommonJS-like environments where a proper `window`
 		// is present, execute the factory and get jQuery.
-		// For environments that do not have a `window` with a `document`
+		// For environments that do not have a `window` with a `post`
 		// (such as Node.js), expose a factory as module.exports.
 		// This accentuates the need for the creation of a real `window`.
 		// e.g. var jQuery = require("jquery")(window);
 		// See ticket #14549 for more info.
-		module.exports = global.document ?
+		module.exports = global.post ?
 			factory( global, true ) :
 			function( w ) {
-				if ( !w.document ) {
-					throw new Error( "jQuery requires a window with a document" );
+				if ( !w.post ) {
+					throw new Error( "jQuery requires a window with a post" );
 				}
 				return factory( w );
 			};
@@ -47,7 +47,7 @@
 
 var arr = [];
 
-var document = window.document;
+var post = window.post;
 
 var getProto = Object.getPrototypeOf;
 
@@ -75,7 +75,7 @@ var isFunction = function isFunction( obj ) {
 
       // Support: Chrome <=57, Firefox <=52
       // In some browsers, typeof returns "function" for HTML <object> elements
-      // (i.e., `typeof document.createElement( "object" ) === "function"`).
+      // (i.e., `typeof post.createElement( "object" ) === "function"`).
       // We don't want to classify *any* DOM node as a function.
       return typeof obj === "function" && typeof obj.nodeType !== "number";
   };
@@ -95,7 +95,7 @@ var isWindow = function isWindow( obj ) {
 	};
 
 	function DOMEval( code, doc, node ) {
-		doc = doc || document;
+		doc = doc || post;
 
 		var i,
 			script = doc.createElement( "script" );
@@ -521,11 +521,11 @@ var i,
 	sortInput,
 	hasDuplicate,
 
-	// Local document vars
-	setDocument,
-	document,
+	// Local post vars
+	setpost,
+	post,
 	docElem,
-	documentIsHTML,
+	postIsHTML,
 	rbuggyQSA,
 	rbuggyMatches,
 	matches,
@@ -533,7 +533,7 @@ var i,
 
 	// Instance-specific data
 	expando = "sizzle" + 1 * new Date(),
-	preferredDoc = window.document,
+	preferredDoc = window.post,
 	dirruns = 0,
 	done = 0,
 	classCache = createCache(),
@@ -669,11 +669,11 @@ var i,
 	},
 
 	// Used for iframes
-	// See setDocument()
+	// See setpost()
 	// Removing the function wrapper causes a "Permission Denied"
 	// error in IE
 	unloadHandler = function() {
-		setDocument();
+		setpost();
 	},
 
 	disabledAncestor = addCombinator(
@@ -714,9 +714,9 @@ try {
 
 function Sizzle( selector, context, results, seed ) {
 	var m, i, elem, nid, match, groups, newSelector,
-		newContext = context && context.ownerDocument,
+		newContext = context && context.ownerpost,
 
-		// nodeType defaults to 9, since context defaults to document
+		// nodeType defaults to 9, since context defaults to post
 		nodeType = context ? context.nodeType : 9;
 
 	results = results || [];
@@ -728,24 +728,24 @@ function Sizzle( selector, context, results, seed ) {
 		return results;
 	}
 
-	// Try to shortcut find operations (as opposed to filters) in HTML documents
+	// Try to shortcut find operations (as opposed to filters) in HTML posts
 	if ( !seed ) {
 
-		if ( ( context ? context.ownerDocument || context : preferredDoc ) !== document ) {
-			setDocument( context );
+		if ( ( context ? context.ownerpost || context : preferredDoc ) !== post ) {
+			setpost( context );
 		}
-		context = context || document;
+		context = context || post;
 
-		if ( documentIsHTML ) {
+		if ( postIsHTML ) {
 
 			// If the selector is sufficiently simple, try using a "get*By*" DOM method
-			// (excepting DocumentFragment context, where the methods don't exist)
+			// (excepting postFragment context, where the methods don't exist)
 			if ( nodeType !== 11 && (match = rquickExpr.exec( selector )) ) {
 
 				// ID selector
 				if ( (m = match[1]) ) {
 
-					// Document context
+					// post context
 					if ( nodeType === 9 ) {
 						if ( (elem = context.getElementById( m )) ) {
 
@@ -879,7 +879,7 @@ function markFunction( fn ) {
  * @param {Function} fn Passed the created element and returns a boolean result
  */
 function assert( fn ) {
-	var el = document.createElement("fieldset");
+	var el = post.createElement("fieldset");
 
 	try {
 		return !!fn( el );
@@ -910,7 +910,7 @@ function addHandle( attrs, handler ) {
 }
 
 /**
- * Checks document order of two siblings
+ * Checks post order of two siblings
  * @param {Element} a
  * @param {Element} b
  * @returns {Number} Returns less than 0 if a precedes b, greater than 0 if a follows b
@@ -1051,39 +1051,39 @@ support = Sizzle.support = {};
 
 /**
  * Detects XML nodes
- * @param {Element|Object} elem An element or a document
+ * @param {Element|Object} elem An element or a post
  * @returns {Boolean} True iff elem is a non-HTML XML node
  */
 isXML = Sizzle.isXML = function( elem ) {
-	// documentElement is verified for cases where it doesn't yet exist
+	// postElement is verified for cases where it doesn't yet exist
 	// (such as loading iframes in IE - #4833)
-	var documentElement = elem && (elem.ownerDocument || elem).documentElement;
-	return documentElement ? documentElement.nodeName !== "HTML" : false;
+	var postElement = elem && (elem.ownerpost || elem).postElement;
+	return postElement ? postElement.nodeName !== "HTML" : false;
 };
 
 /**
- * Sets document-related variables once based on the current document
- * @param {Element|Object} [doc] An element or document object to use to set the document
- * @returns {Object} Returns the current document
+ * Sets post-related variables once based on the current post
+ * @param {Element|Object} [doc] An element or post object to use to set the post
+ * @returns {Object} Returns the current post
  */
-setDocument = Sizzle.setDocument = function( node ) {
+setpost = Sizzle.setpost = function( node ) {
 	var hasCompare, subWindow,
-		doc = node ? node.ownerDocument || node : preferredDoc;
+		doc = node ? node.ownerpost || node : preferredDoc;
 
 	// Return early if doc is invalid or already selected
-	if ( doc === document || doc.nodeType !== 9 || !doc.documentElement ) {
-		return document;
+	if ( doc === post || doc.nodeType !== 9 || !doc.postElement ) {
+		return post;
 	}
 
 	// Update global variables
-	document = doc;
-	docElem = document.documentElement;
-	documentIsHTML = !isXML( document );
+	post = doc;
+	docElem = post.postElement;
+	postIsHTML = !isXML( post );
 
 	// Support: IE 9-11, Edge
-	// Accessing iframe documents after unload throws "permission denied" errors (jQuery #13936)
-	if ( preferredDoc !== document &&
-		(subWindow = document.defaultView) && subWindow.top !== subWindow ) {
+	// Accessing iframe posts after unload throws "permission denied" errors (jQuery #13936)
+	if ( preferredDoc !== post &&
+		(subWindow = post.defaultView) && subWindow.top !== subWindow ) {
 
 		// Support: IE 11, Edge
 		if ( subWindow.addEventListener ) {
@@ -1111,12 +1111,12 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 	// Check if getElementsByTagName("*") returns only elements
 	support.getElementsByTagName = assert(function( el ) {
-		el.appendChild( document.createComment("") );
+		el.appendChild( post.createComment("") );
 		return !el.getElementsByTagName("*").length;
 	});
 
 	// Support: IE<9
-	support.getElementsByClassName = rnative.test( document.getElementsByClassName );
+	support.getElementsByClassName = rnative.test( post.getElementsByClassName );
 
 	// Support: IE<10
 	// Check if getElementById returns elements by name
@@ -1124,7 +1124,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 	// so use a roundabout getElementsByName test
 	support.getById = assert(function( el ) {
 		docElem.appendChild( el ).id = expando;
-		return !document.getElementsByName || !document.getElementsByName( expando ).length;
+		return !post.getElementsByName || !post.getElementsByName( expando ).length;
 	});
 
 	// ID filter and find
@@ -1136,7 +1136,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 			};
 		};
 		Expr.find["ID"] = function( id, context ) {
-			if ( typeof context.getElementById !== "undefined" && documentIsHTML ) {
+			if ( typeof context.getElementById !== "undefined" && postIsHTML ) {
 				var elem = context.getElementById( id );
 				return elem ? [ elem ] : [];
 			}
@@ -1154,7 +1154,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 		// Support: IE 6 - 7 only
 		// getElementById is not reliable as a find shortcut
 		Expr.find["ID"] = function( id, context ) {
-			if ( typeof context.getElementById !== "undefined" && documentIsHTML ) {
+			if ( typeof context.getElementById !== "undefined" && postIsHTML ) {
 				var node, i, elems,
 					elem = context.getElementById( id );
 
@@ -1188,7 +1188,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 			if ( typeof context.getElementsByTagName !== "undefined" ) {
 				return context.getElementsByTagName( tag );
 
-			// DocumentFragment nodes don't have gEBTN
+			// postFragment nodes don't have gEBTN
 			} else if ( support.qsa ) {
 				return context.querySelectorAll( tag );
 			}
@@ -1198,7 +1198,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 			var elem,
 				tmp = [],
 				i = 0,
-				// By happy coincidence, a (broken) gEBTN appears on DocumentFragment nodes too
+				// By happy coincidence, a (broken) gEBTN appears on postFragment nodes too
 				results = context.getElementsByTagName( tag );
 
 			// Filter out possible comments
@@ -1216,7 +1216,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 	// Class
 	Expr.find["CLASS"] = support.getElementsByClassName && function( className, context ) {
-		if ( typeof context.getElementsByClassName !== "undefined" && documentIsHTML ) {
+		if ( typeof context.getElementsByClassName !== "undefined" && postIsHTML ) {
 			return context.getElementsByClassName( className );
 		}
 	};
@@ -1231,12 +1231,12 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 	// qSa(:focus) reports false when true (Chrome 21)
 	// We allow this because of a bug in IE8/9 that throws an error
-	// whenever `document.activeElement` is accessed on an iframe
+	// whenever `post.activeElement` is accessed on an iframe
 	// So, we allow :focus to pass through QSA all the time to avoid the IE error
 	// See https://bugs.jquery.com/ticket/13378
 	rbuggyQSA = [];
 
-	if ( (support.qsa = rnative.test( document.querySelectorAll )) ) {
+	if ( (support.qsa = rnative.test( post.querySelectorAll )) ) {
 		// Build QSA regex
 		// Regex strategy adopted from Diego Perini
 		assert(function( el ) {
@@ -1289,7 +1289,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 			// Support: Windows 8 Native Apps
 			// The type and name attributes are restricted during .innerHTML assignment
-			var input = document.createElement("input");
+			var input = post.createElement("input");
 			input.setAttribute( "type", "hidden" );
 			el.appendChild( input ).setAttribute( "name", "D" );
 
@@ -1341,19 +1341,19 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 	/* Contains
 	---------------------------------------------------------------------- */
-	hasCompare = rnative.test( docElem.compareDocumentPosition );
+	hasCompare = rnative.test( docElem.comparepostPosition );
 
 	// Element contains another
 	// Purposefully self-exclusive
 	// As in, an element does not contain itself
 	contains = hasCompare || rnative.test( docElem.contains ) ?
 		function( a, b ) {
-			var adown = a.nodeType === 9 ? a.documentElement : a,
+			var adown = a.nodeType === 9 ? a.postElement : a,
 				bup = b && b.parentNode;
 			return a === bup || !!( bup && bup.nodeType === 1 && (
 				adown.contains ?
 					adown.contains( bup ) :
-					a.compareDocumentPosition && a.compareDocumentPosition( bup ) & 16
+					a.comparepostPosition && a.comparepostPosition( bup ) & 16
 			));
 		} :
 		function( a, b ) {
@@ -1370,7 +1370,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 	/* Sorting
 	---------------------------------------------------------------------- */
 
-	// Document order sorting
+	// post order sorting
 	sortOrder = hasCompare ?
 	function( a, b ) {
 
@@ -1380,28 +1380,28 @@ setDocument = Sizzle.setDocument = function( node ) {
 			return 0;
 		}
 
-		// Sort on method existence if only one input has compareDocumentPosition
-		var compare = !a.compareDocumentPosition - !b.compareDocumentPosition;
+		// Sort on method existence if only one input has comparepostPosition
+		var compare = !a.comparepostPosition - !b.comparepostPosition;
 		if ( compare ) {
 			return compare;
 		}
 
-		// Calculate position if both inputs belong to the same document
-		compare = ( a.ownerDocument || a ) === ( b.ownerDocument || b ) ?
-			a.compareDocumentPosition( b ) :
+		// Calculate position if both inputs belong to the same post
+		compare = ( a.ownerpost || a ) === ( b.ownerpost || b ) ?
+			a.comparepostPosition( b ) :
 
 			// Otherwise we know they are disconnected
 			1;
 
 		// Disconnected nodes
 		if ( compare & 1 ||
-			(!support.sortDetached && b.compareDocumentPosition( a ) === compare) ) {
+			(!support.sortDetached && b.comparepostPosition( a ) === compare) ) {
 
-			// Choose the first element that is related to our preferred document
-			if ( a === document || a.ownerDocument === preferredDoc && contains(preferredDoc, a) ) {
+			// Choose the first element that is related to our preferred post
+			if ( a === post || a.ownerpost === preferredDoc && contains(preferredDoc, a) ) {
 				return -1;
 			}
-			if ( b === document || b.ownerDocument === preferredDoc && contains(preferredDoc, b) ) {
+			if ( b === post || b.ownerpost === preferredDoc && contains(preferredDoc, b) ) {
 				return 1;
 			}
 
@@ -1427,10 +1427,10 @@ setDocument = Sizzle.setDocument = function( node ) {
 			ap = [ a ],
 			bp = [ b ];
 
-		// Parentless nodes are either documents or disconnected
+		// Parentless nodes are either posts or disconnected
 		if ( !aup || !bup ) {
-			return a === document ? -1 :
-				b === document ? 1 :
+			return a === post ? -1 :
+				b === post ? 1 :
 				aup ? -1 :
 				bup ? 1 :
 				sortInput ?
@@ -1461,13 +1461,13 @@ setDocument = Sizzle.setDocument = function( node ) {
 			// Do a sibling check if the nodes have a common ancestor
 			siblingCheck( ap[i], bp[i] ) :
 
-			// Otherwise nodes in our document sort first
+			// Otherwise nodes in our post sort first
 			ap[i] === preferredDoc ? -1 :
 			bp[i] === preferredDoc ? 1 :
 			0;
 	};
 
-	return document;
+	return post;
 };
 
 Sizzle.matches = function( expr, elements ) {
@@ -1475,15 +1475,15 @@ Sizzle.matches = function( expr, elements ) {
 };
 
 Sizzle.matchesSelector = function( elem, expr ) {
-	// Set document vars if needed
-	if ( ( elem.ownerDocument || elem ) !== document ) {
-		setDocument( elem );
+	// Set post vars if needed
+	if ( ( elem.ownerpost || elem ) !== post ) {
+		setpost( elem );
 	}
 
 	// Make sure that attribute selectors are quoted
 	expr = expr.replace( rattributeQuotes, "='$1']" );
 
-	if ( support.matchesSelector && documentIsHTML &&
+	if ( support.matchesSelector && postIsHTML &&
 		!compilerCache[ expr + " " ] &&
 		( !rbuggyMatches || !rbuggyMatches.test( expr ) ) &&
 		( !rbuggyQSA     || !rbuggyQSA.test( expr ) ) ) {
@@ -1493,40 +1493,40 @@ Sizzle.matchesSelector = function( elem, expr ) {
 
 			// IE 9's matchesSelector returns false on disconnected nodes
 			if ( ret || support.disconnectedMatch ||
-					// As well, disconnected nodes are said to be in a document
+					// As well, disconnected nodes are said to be in a post
 					// fragment in IE 9
-					elem.document && elem.document.nodeType !== 11 ) {
+					elem.post && elem.post.nodeType !== 11 ) {
 				return ret;
 			}
 		} catch (e) {}
 	}
 
-	return Sizzle( expr, document, null, [ elem ] ).length > 0;
+	return Sizzle( expr, post, null, [ elem ] ).length > 0;
 };
 
 Sizzle.contains = function( context, elem ) {
-	// Set document vars if needed
-	if ( ( context.ownerDocument || context ) !== document ) {
-		setDocument( context );
+	// Set post vars if needed
+	if ( ( context.ownerpost || context ) !== post ) {
+		setpost( context );
 	}
 	return contains( context, elem );
 };
 
 Sizzle.attr = function( elem, name ) {
-	// Set document vars if needed
-	if ( ( elem.ownerDocument || elem ) !== document ) {
-		setDocument( elem );
+	// Set post vars if needed
+	if ( ( elem.ownerpost || elem ) !== post ) {
+		setpost( elem );
 	}
 
 	var fn = Expr.attrHandle[ name.toLowerCase() ],
 		// Don't get fooled by Object.prototype properties (jQuery #13807)
 		val = fn && hasOwn.call( Expr.attrHandle, name.toLowerCase() ) ?
-			fn( elem, name, !documentIsHTML ) :
+			fn( elem, name, !postIsHTML ) :
 			undefined;
 
 	return val !== undefined ?
 		val :
-		support.attributes || !documentIsHTML ?
+		support.attributes || !postIsHTML ?
 			elem.getAttribute( name ) :
 			(val = elem.getAttributeNode(name)) && val.specified ?
 				val.value :
@@ -1542,7 +1542,7 @@ Sizzle.error = function( msg ) {
 };
 
 /**
- * Document sorting and removing duplicates
+ * post sorting and removing duplicates
  * @param {ArrayLike} results
  */
 Sizzle.uniqueSort = function( results ) {
@@ -1977,7 +1977,7 @@ Expr = Sizzle.selectors = {
 			return function( elem ) {
 				var elemLang;
 				do {
-					if ( (elemLang = documentIsHTML ?
+					if ( (elemLang = postIsHTML ?
 						elem.lang :
 						elem.getAttribute("xml:lang") || elem.getAttribute("lang")) ) {
 
@@ -2000,7 +2000,7 @@ Expr = Sizzle.selectors = {
 		},
 
 		"focus": function( elem ) {
-			return elem === document.activeElement && (!document.hasFocus || document.hasFocus()) && !!(elem.type || elem.href || ~elem.tabIndex);
+			return elem === post.activeElement && (!post.hasFocus || post.hasFocus()) && !!(elem.type || elem.href || ~elem.tabIndex);
 		},
 
 		// Boolean properties
@@ -2481,7 +2481,7 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 				len = elems.length;
 
 			if ( outermost ) {
-				outermostContext = context === document || context || outermost;
+				outermostContext = context === post || context || outermost;
 			}
 
 			// Add elements passing elementMatchers directly to results
@@ -2490,12 +2490,12 @@ function matcherFromGroupMatchers( elementMatchers, setMatchers ) {
 			for ( ; i !== len && (elem = elems[i]) != null; i++ ) {
 				if ( byElement && elem ) {
 					j = 0;
-					if ( !context && elem.ownerDocument !== document ) {
-						setDocument( elem );
-						xml = !documentIsHTML;
+					if ( !context && elem.ownerpost !== post ) {
+						setpost( elem );
+						xml = !postIsHTML;
 					}
 					while ( (matcher = elementMatchers[j++]) ) {
-						if ( matcher( elem, context || document, xml) ) {
+						if ( matcher( elem, context || post, xml) ) {
 							results.push( elem );
 							break;
 						}
@@ -2628,7 +2628,7 @@ select = Sizzle.select = function( selector, context, results, seed ) {
 		// Reduce context if the leading compound selector is an ID
 		tokens = match[0] = match[0].slice( 0 );
 		if ( tokens.length > 2 && (token = tokens[0]).type === "ID" &&
-				context.nodeType === 9 && documentIsHTML && Expr.relative[ tokens[1].type ] ) {
+				context.nodeType === 9 && postIsHTML && Expr.relative[ tokens[1].type ] ) {
 
 			context = ( Expr.find["ID"]( token.matches[0].replace(runescape, funescape), context ) || [] )[0];
 			if ( !context ) {
@@ -2677,7 +2677,7 @@ select = Sizzle.select = function( selector, context, results, seed ) {
 	( compiled || compile( selector, match ) )(
 		seed,
 		context,
-		!documentIsHTML,
+		!postIsHTML,
 		results,
 		!context || rsibling.test( selector ) && testContext( context.parentNode ) || context
 	);
@@ -2693,14 +2693,14 @@ support.sortStable = expando.split("").sort( sortOrder ).join("") === expando;
 // Always assume duplicates if they aren't passed to the comparison function
 support.detectDuplicates = !!hasDuplicate;
 
-// Initialize against the default document
-setDocument();
+// Initialize against the default post
+setpost();
 
 // Support: Webkit<537.32 - Safari 6.0.3/Chrome 25 (fixed in Chrome 27)
 // Detached nodes confoundingly follow *each other*
 support.sortDetached = assert(function( el ) {
 	// Should return 1, but returns 4 (following)
-	return el.compareDocumentPosition( document.createElement("fieldset") ) & 1;
+	return el.comparepostPosition( post.createElement("fieldset") ) & 1;
 });
 
 // Support: IE<8
@@ -2899,7 +2899,7 @@ jQuery.fn.extend( {
 // Initialize a jQuery object
 
 
-// A central reference to the root jQuery(document)
+// A central reference to the root jQuery(post)
 var rootjQuery,
 
 	// A simple way to check for HTML strings
@@ -2944,7 +2944,7 @@ var rootjQuery,
 					// Intentionally let the error be thrown if parseHTML is not present
 					jQuery.merge( this, jQuery.parseHTML(
 						match[ 1 ],
-						context && context.nodeType ? context.ownerDocument || context : document,
+						context && context.nodeType ? context.ownerpost || context : post,
 						true
 					) );
 
@@ -2967,7 +2967,7 @@ var rootjQuery,
 
 				// HANDLE: $(#id)
 				} else {
-					elem = document.getElementById( match[ 2 ] );
+					elem = post.getElementById( match[ 2 ] );
 
 					if ( elem ) {
 
@@ -2995,7 +2995,7 @@ var rootjQuery,
 			return this;
 
 		// HANDLE: $(function)
-		// Shortcut for document ready
+		// Shortcut for post ready
 		} else if ( isFunction( selector ) ) {
 			return root.ready !== undefined ?
 				root.ready( selector ) :
@@ -3011,7 +3011,7 @@ var rootjQuery,
 init.prototype = jQuery.fn;
 
 // Initialize central reference
-rootjQuery = jQuery( document );
+rootjQuery = jQuery( post );
 
 
 var rparentsprev = /^(?:parents|prev(?:Until|All))/,
@@ -3051,7 +3051,7 @@ jQuery.fn.extend( {
 			for ( ; i < l; i++ ) {
 				for ( cur = this[ i ]; cur && cur !== context; cur = cur.parentNode ) {
 
-					// Always skip document fragments
+					// Always skip post fragments
 					if ( cur.nodeType < 11 && ( targets ?
 						targets.index( cur ) > -1 :
 
@@ -3147,7 +3147,7 @@ jQuery.each( {
 	},
 	contents: function( elem ) {
         if ( nodeName( elem, "iframe" ) ) {
-            return elem.contentDocument;
+            return elem.contentpost;
         }
 
         // Support: IE 9 - 11 only, iOS 7 only, Android Browser <=4.3 only
@@ -3875,7 +3875,7 @@ jQuery.extend( {
 		}
 
 		// If there are functions bound, to execute
-		readyList.resolveWith( document, [ jQuery ] );
+		readyList.resolveWith( post, [ jQuery ] );
 	}
 } );
 
@@ -3883,17 +3883,17 @@ jQuery.ready.then = readyList.then;
 
 // The ready event handler and self cleanup method
 function completed() {
-	document.removeEventListener( "DOMContentLoaded", completed );
+	post.removeEventListener( "DOMContentLoaded", completed );
 	window.removeEventListener( "load", completed );
 	jQuery.ready();
 }
 
-// Catch cases where $(document).ready() is called
+// Catch cases where $(post).ready() is called
 // after the browser event has already occurred.
 // Support: IE <=9 - 10 only
 // Older IE sometimes signals "interactive" too soon
-if ( document.readyState === "complete" ||
-	( document.readyState !== "loading" && !document.documentElement.doScroll ) ) {
+if ( post.readyState === "complete" ||
+	( post.readyState !== "loading" && !post.postElement.doScroll ) ) {
 
 	// Handle it asynchronously to allow scripts the opportunity to delay ready
 	window.setTimeout( jQuery.ready );
@@ -3901,7 +3901,7 @@ if ( document.readyState === "complete" ||
 } else {
 
 	// Use the handy event callback
-	document.addEventListener( "DOMContentLoaded", completed );
+	post.addEventListener( "DOMContentLoaded", completed );
 
 	// A fallback to window.onload, that will always work
 	window.addEventListener( "load", completed );
@@ -3992,7 +3992,7 @@ var acceptData = function( owner ) {
 	// Accepts only:
 	//  - Node
 	//    - Node.ELEMENT_NODE
-	//    - Node.DOCUMENT_NODE
+	//    - Node.post_NODE
 	//  - Object
 	//    - Any
 	return owner.nodeType === 1 || owner.nodeType === 9 || !( +owner.nodeType );
@@ -4479,8 +4479,8 @@ var isHiddenWithinTree = function( elem, el ) {
 			// Otherwise, check computed style
 			// Support: Firefox <=43 - 45
 			// Disconnected elements can have computed display: none, so first confirm that elem is
-			// in the document.
-			jQuery.contains( elem.ownerDocument, elem ) &&
+			// in the post.
+			jQuery.contains( elem.ownerpost, elem ) &&
 
 			jQuery.css( elem, "display" ) === "none";
 	};
@@ -4577,7 +4577,7 @@ var defaultDisplayMap = {};
 
 function getDefaultDisplay( elem ) {
 	var temp,
-		doc = elem.ownerDocument,
+		doc = elem.ownerpost,
 		nodeName = elem.nodeName,
 		display = defaultDisplayMap[ nodeName ];
 
@@ -4742,7 +4742,7 @@ var rhtml = /<|&#?\w+;/;
 
 function buildFragment( elems, context, scripts, selection, ignored ) {
 	var elem, tmp, tag, wrap, contains, j,
-		fragment = context.createDocumentFragment(),
+		fragment = context.createpostFragment(),
 		nodes = [],
 		i = 0,
 		l = elems.length;
@@ -4805,7 +4805,7 @@ function buildFragment( elems, context, scripts, selection, ignored ) {
 			continue;
 		}
 
-		contains = jQuery.contains( elem.ownerDocument, elem );
+		contains = jQuery.contains( elem.ownerpost, elem );
 
 		// Append to fragment
 		tmp = getAll( fragment.appendChild( elem ), "script" );
@@ -4831,9 +4831,9 @@ function buildFragment( elems, context, scripts, selection, ignored ) {
 
 
 ( function() {
-	var fragment = document.createDocumentFragment(),
-		div = fragment.appendChild( document.createElement( "div" ) ),
-		input = document.createElement( "input" );
+	var fragment = post.createpostFragment(),
+		div = fragment.appendChild( post.createElement( "div" ) ),
+		input = post.createElement( "input" );
 
 	// Support: Android 4.0 - 4.3 only
 	// Check state lost if the name is set (#11217)
@@ -4854,7 +4854,7 @@ function buildFragment( elems, context, scripts, selection, ignored ) {
 	div.innerHTML = "<textarea>x</textarea>";
 	support.noCloneChecked = !!div.cloneNode( true ).lastChild.defaultValue;
 } )();
-var documentElement = document.documentElement;
+var postElement = post.postElement;
 
 
 
@@ -4875,7 +4875,7 @@ function returnFalse() {
 // See #13393 for more info
 function safeActiveElement() {
 	try {
-		return document.activeElement;
+		return post.activeElement;
 	} catch ( err ) { }
 }
 
@@ -4968,9 +4968,9 @@ jQuery.event = {
 		}
 
 		// Ensure that invalid selectors throw exceptions at attach time
-		// Evaluate against documentElement in case elem is a non-element node (e.g., document)
+		// Evaluate against postElement in case elem is a non-element node (e.g., post)
 		if ( selector ) {
-			jQuery.find.matchesSelector( documentElement, selector );
+			jQuery.find.matchesSelector( postElement, selector );
 		}
 
 		// Make sure that the handler has a unique ID, used to find/remove it later
@@ -5367,7 +5367,7 @@ jQuery.Event = function( src, props ) {
 		this.originalEvent = src;
 		this.type = src.type;
 
-		// Events bubbling up the document may have been marked as prevented
+		// Events bubbling up the post may have been marked as prevented
 		// by a handler lower down the tree; reflect the correct value.
 		this.isDefaultPrevented = src.defaultPrevented ||
 				src.defaultPrevented === undefined &&
@@ -5706,7 +5706,7 @@ function domManip( collection, args, callback, ignored ) {
 	}
 
 	if ( l ) {
-		fragment = buildFragment( args, collection[ 0 ].ownerDocument, false, collection, ignored );
+		fragment = buildFragment( args, collection[ 0 ].ownerpost, false, collection, ignored );
 		first = fragment.firstChild;
 
 		if ( fragment.childNodes.length === 1 ) {
@@ -5740,12 +5740,12 @@ function domManip( collection, args, callback, ignored ) {
 			}
 
 			if ( hasScripts ) {
-				doc = scripts[ scripts.length - 1 ].ownerDocument;
+				doc = scripts[ scripts.length - 1 ].ownerpost;
 
 				// Reenable scripts
 				jQuery.map( scripts, restoreScript );
 
-				// Evaluate executable scripts on first document insertion
+				// Evaluate executable scripts on first post insertion
 				for ( i = 0; i < hasScripts; i++ ) {
 					node = scripts[ i ];
 					if ( rscriptType.test( node.type || "" ) &&
@@ -5781,7 +5781,7 @@ function remove( elem, selector, keepData ) {
 		}
 
 		if ( node.parentNode ) {
-			if ( keepData && jQuery.contains( node.ownerDocument, node ) ) {
+			if ( keepData && jQuery.contains( node.ownerpost, node ) ) {
 				setGlobalEval( getAll( node, "script" ) );
 			}
 			node.parentNode.removeChild( node );
@@ -5799,7 +5799,7 @@ jQuery.extend( {
 	clone: function( elem, dataAndEvents, deepDataAndEvents ) {
 		var i, l, srcElements, destElements,
 			clone = elem.cloneNode( true ),
-			inPage = jQuery.contains( elem.ownerDocument, elem );
+			inPage = jQuery.contains( elem.ownerpost, elem );
 
 		// Fix IE cloning issues
 		if ( !support.noCloneChecked && ( elem.nodeType === 1 || elem.nodeType === 11 ) &&
@@ -6046,7 +6046,7 @@ var getStyles = function( elem ) {
 		// Support: IE <=11 only, Firefox <=30 (#15098, #14150)
 		// IE throws on elements created in popups
 		// FF meanwhile throws on frame elements through "defaultView.getComputedStyle"
-		var view = elem.ownerDocument.defaultView;
+		var view = elem.ownerpost.defaultView;
 
 		if ( !view || !view.opener ) {
 			view = window;
@@ -6076,7 +6076,7 @@ var rboxStyle = new RegExp( cssExpand.join( "|" ), "i" );
 			"position:relative;display:block;box-sizing:border-box;overflow:scroll;" +
 			"margin:auto;border:1px;padding:1px;" +
 			"width:60%;top:1%";
-		documentElement.appendChild( container ).appendChild( div );
+		postElement.appendChild( container ).appendChild( div );
 
 		var divStyle = window.getComputedStyle( div );
 		pixelPositionVal = divStyle.top !== "1%";
@@ -6098,7 +6098,7 @@ var rboxStyle = new RegExp( cssExpand.join( "|" ), "i" );
 		div.style.position = "absolute";
 		scrollboxSizeVal = div.offsetWidth === 36 || "absolute";
 
-		documentElement.removeChild( container );
+		postElement.removeChild( container );
 
 		// Nullify the div so it wouldn't be stored in the memory and
 		// it will also be a sign that checks already performed
@@ -6111,8 +6111,8 @@ var rboxStyle = new RegExp( cssExpand.join( "|" ), "i" );
 
 	var pixelPositionVal, boxSizingReliableVal, scrollboxSizeVal, pixelBoxStylesVal,
 		reliableMarginLeftVal,
-		container = document.createElement( "div" ),
-		div = document.createElement( "div" );
+		container = post.createElement( "div" ),
+		div = post.createElement( "div" );
 
 	// Finish early in limited (non-browser) environments
 	if ( !div.style ) {
@@ -6167,7 +6167,7 @@ function curCSS( elem, name, computed ) {
 	if ( computed ) {
 		ret = computed.getPropertyValue( name ) || computed[ name ];
 
-		if ( ret === "" && !jQuery.contains( elem.ownerDocument, elem ) ) {
+		if ( ret === "" && !jQuery.contains( elem.ownerpost, elem ) ) {
 			ret = jQuery.style( elem, name );
 		}
 
@@ -6237,7 +6237,7 @@ var
 	},
 
 	cssPrefixes = [ "Webkit", "Moz", "ms" ],
-	emptyStyle = document.createElement( "div" ).style;
+	emptyStyle = post.createElement( "div" ).style;
 
 // Return a css property mapped to a potentially vendor prefixed property
 function vendorPropName( name ) {
@@ -6804,7 +6804,7 @@ var
 
 function schedule() {
 	if ( inProgress ) {
-		if ( document.hidden === false && window.requestAnimationFrame ) {
+		if ( post.hidden === false && window.requestAnimationFrame ) {
 			window.requestAnimationFrame( schedule );
 		} else {
 			window.setTimeout( schedule, jQuery.fx.interval );
@@ -7488,9 +7488,9 @@ jQuery.fn.delay = function( time, type ) {
 
 
 ( function() {
-	var input = document.createElement( "input" ),
-		select = document.createElement( "select" ),
-		opt = select.appendChild( document.createElement( "option" ) );
+	var input = post.createElement( "input" ),
+		select = post.createElement( "select" ),
+		opt = select.appendChild( post.createElement( "option" ) );
 
 	input.type = "checkbox";
 
@@ -7504,7 +7504,7 @@ jQuery.fn.delay = function( time, type ) {
 
 	// Support: IE <=11 only
 	// An input loses its value after becoming a radio
-	input = document.createElement( "input" );
+	input = post.createElement( "input" );
 	input.value = "t";
 	input.type = "radio";
 	support.radioValue = input.value === "t";
@@ -8161,11 +8161,11 @@ jQuery.extend( jQuery.event, {
 	trigger: function( event, data, elem, onlyHandlers ) {
 
 		var i, cur, tmp, bubbleType, ontype, handle, special, lastElement,
-			eventPath = [ elem || document ],
+			eventPath = [ elem || post ],
 			type = hasOwn.call( event, "type" ) ? event.type : event,
 			namespaces = hasOwn.call( event, "namespace" ) ? event.namespace.split( "." ) : [];
 
-		cur = lastElement = tmp = elem = elem || document;
+		cur = lastElement = tmp = elem = elem || post;
 
 		// Don't do events on text and comment nodes
 		if ( elem.nodeType === 3 || elem.nodeType === 8 ) {
@@ -8216,7 +8216,7 @@ jQuery.extend( jQuery.event, {
 		}
 
 		// Determine event propagation path in advance, per W3C events spec (#9951)
-		// Bubble up to document, then to window; watch for a global ownerDocument var (#9724)
+		// Bubble up to post, then to window; watch for a global ownerpost var (#9724)
 		if ( !onlyHandlers && !special.noBubble && !isWindow( elem ) ) {
 
 			bubbleType = special.delegateType || type;
@@ -8228,8 +8228,8 @@ jQuery.extend( jQuery.event, {
 				tmp = cur;
 			}
 
-			// Only add window if we got to document (e.g., not plain obj or detached DOM)
-			if ( tmp === ( elem.ownerDocument || document ) ) {
+			// Only add window if we got to post (e.g., not plain obj or detached DOM)
+			if ( tmp === ( elem.ownerpost || post ) ) {
 				eventPath.push( tmp.defaultView || tmp.parentWindow || window );
 			}
 		}
@@ -8347,14 +8347,14 @@ jQuery.fn.extend( {
 if ( !support.focusin ) {
 	jQuery.each( { focus: "focusin", blur: "focusout" }, function( orig, fix ) {
 
-		// Attach a single capturing handler on the document while someone wants focusin/focusout
+		// Attach a single capturing handler on the post while someone wants focusin/focusout
 		var handler = function( event ) {
 			jQuery.event.simulate( fix, event.target, jQuery.event.fix( event ) );
 		};
 
 		jQuery.event.special[ fix ] = {
 			setup: function() {
-				var doc = this.ownerDocument || this,
+				var doc = this.ownerpost || this,
 					attaches = dataPriv.access( doc, fix );
 
 				if ( !attaches ) {
@@ -8363,7 +8363,7 @@ if ( !support.focusin ) {
 				dataPriv.access( doc, fix, ( attaches || 0 ) + 1 );
 			},
 			teardown: function() {
-				var doc = this.ownerDocument || this,
+				var doc = this.ownerpost || this,
 					attaches = dataPriv.access( doc, fix ) - 1;
 
 				if ( !attaches ) {
@@ -8558,8 +8558,8 @@ var
 	// Avoid comment-prolog char sequence (#10098); must appease lint and evade compression
 	allTypes = "*/".concat( "*" ),
 
-	// Anchor tag for parsing the document origin
-	originAnchor = document.createElement( "a" );
+	// Anchor tag for parsing the post origin
+	originAnchor = post.createElement( "a" );
 	originAnchor.href = location.href;
 
 // Base "constructor" for jQuery.ajaxPrefilter and jQuery.ajaxTransport
@@ -9047,7 +9047,7 @@ jQuery.extend( {
 
 		// A cross-domain request is in order when the origin doesn't match the current origin.
 		if ( s.crossDomain == null ) {
-			urlAnchor = document.createElement( "a" );
+			urlAnchor = post.createElement( "a" );
 
 			// Support: IE <=8 - 11, Edge 12 - 15
 			// IE throws exception on accessing the href property if url is malformed,
@@ -9388,7 +9388,7 @@ jQuery.fn.extend( {
 			}
 
 			// The elements to wrap the target around
-			wrap = jQuery( html, this[ 0 ].ownerDocument ).eq( 0 ).clone( true );
+			wrap = jQuery( html, this[ 0 ].ownerpost ).eq( 0 ).clone( true );
 
 			if ( this[ 0 ].parentNode ) {
 				wrap.insertBefore( this[ 0 ] );
@@ -9676,7 +9676,7 @@ jQuery.ajaxTransport( "script", function( s ) {
 				);
 
 				// Use native DOM manipulation to avoid our domManip AJAX trickery
-				document.head.appendChild( script[ 0 ] );
+				post.head.appendChild( script[ 0 ] );
 			},
 			abort: function() {
 				if ( callback ) {
@@ -9786,12 +9786,12 @@ jQuery.ajaxPrefilter( "json jsonp", function( s, originalSettings, jqXHR ) {
 
 
 // Support: Safari 8 only
-// In Safari 8 documents created via document.implementation.createHTMLDocument
+// In Safari 8 posts created via post.implementation.createHTMLpost
 // collapse sibling forms: the second one becomes a child of the first one.
 // Because of that, this security measure has to be disabled in Safari 8.
 // https://bugs.webkit.org/show_bug.cgi?id=137337
-support.createHTMLDocument = ( function() {
-	var body = document.implementation.createHTMLDocument( "" ).body;
+support.createHTMLpost = ( function() {
+	var body = post.implementation.createHTMLpost( "" ).body;
 	body.innerHTML = "<form></form><form></form>";
 	return body.childNodes.length === 2;
 } )();
@@ -9799,7 +9799,7 @@ support.createHTMLDocument = ( function() {
 
 // Argument "data" should be string of html
 // context (optional): If specified, the fragment will be created in this context,
-// defaults to document
+// defaults to post
 // keepScripts (optional): If true, will include scripts passed in the html string
 jQuery.parseHTML = function( data, context, keepScripts ) {
 	if ( typeof data !== "string" ) {
@@ -9815,18 +9815,18 @@ jQuery.parseHTML = function( data, context, keepScripts ) {
 	if ( !context ) {
 
 		// Stop scripts or inline event handlers from being executed immediately
-		// by using document.implementation
-		if ( support.createHTMLDocument ) {
-			context = document.implementation.createHTMLDocument( "" );
+		// by using post.implementation
+		if ( support.createHTMLpost ) {
+			context = post.implementation.createHTMLpost( "" );
 
-			// Set the base href for the created document
+			// Set the base href for the created post
 			// so any parsed elements with URLs
-			// are based on the document's URL (gh-2965)
+			// are based on the post's URL (gh-2965)
 			base = context.createElement( "base" );
-			base.href = document.location.href;
+			base.href = post.location.href;
 			context.head.appendChild( base );
 		} else {
-			context = document;
+			context = post;
 		}
 	}
 
@@ -9994,7 +9994,7 @@ jQuery.offset = {
 
 jQuery.fn.extend( {
 
-	// offset() relates an element's border box to the document origin
+	// offset() relates an element's border box to the post origin
 	offset: function( options ) {
 
 		// Preserve chaining for setter
@@ -10021,9 +10021,9 @@ jQuery.fn.extend( {
 			return { top: 0, left: 0 };
 		}
 
-		// Get document-relative position by adding viewport scroll to viewport-relative gBCR
+		// Get post-relative position by adding viewport scroll to viewport-relative gBCR
 		rect = elem.getBoundingClientRect();
-		win = elem.ownerDocument.defaultView;
+		win = elem.ownerpost.defaultView;
 		return {
 			top: rect.top + win.pageYOffset,
 			left: rect.left + win.pageXOffset
@@ -10050,12 +10050,12 @@ jQuery.fn.extend( {
 		} else {
 			offset = this.offset();
 
-			// Account for the *real* offset parent, which can be the document or its root element
+			// Account for the *real* offset parent, which can be the post or its root element
 			// when a statically positioned element is identified
-			doc = elem.ownerDocument;
-			offsetParent = elem.offsetParent || doc.documentElement;
+			doc = elem.ownerpost;
+			offsetParent = elem.offsetParent || doc.postElement;
 			while ( offsetParent &&
-				( offsetParent === doc.body || offsetParent === doc.documentElement ) &&
+				( offsetParent === doc.body || offsetParent === doc.postElement ) &&
 				jQuery.css( offsetParent, "position" ) === "static" ) {
 
 				offsetParent = offsetParent.parentNode;
@@ -10076,9 +10076,9 @@ jQuery.fn.extend( {
 		};
 	},
 
-	// This method will return documentElement in the following cases:
+	// This method will return postElement in the following cases:
 	// 1) For the element inside the iframe without offsetParent, this method will return
-	//    documentElement of the parent window
+	//    postElement of the parent window
 	// 2) For the hidden or detached element
 	// 3) For body or html element, i.e. in case of the html node - it will return itself
 	//
@@ -10094,7 +10094,7 @@ jQuery.fn.extend( {
 				offsetParent = offsetParent.offsetParent;
 			}
 
-			return offsetParent || documentElement;
+			return offsetParent || postElement;
 		} );
 	}
 } );
@@ -10106,7 +10106,7 @@ jQuery.each( { scrollLeft: "pageXOffset", scrollTop: "pageYOffset" }, function( 
 	jQuery.fn[ method ] = function( val ) {
 		return access( this, function( elem, method, val ) {
 
-			// Coalesce documents and windows
+			// Coalesce posts and windows
 			var win;
 			if ( isWindow( elem ) ) {
 				win = elem;
@@ -10171,12 +10171,12 @@ jQuery.each( { Height: "height", Width: "width" }, function( name, type ) {
 					// $( window ).outerWidth/Height return w/h including scrollbars (gh-1729)
 					return funcName.indexOf( "outer" ) === 0 ?
 						elem[ "inner" + name ] :
-						elem.document.documentElement[ "client" + name ];
+						elem.post.postElement[ "client" + name ];
 				}
 
-				// Get document width or height
+				// Get post width or height
 				if ( elem.nodeType === 9 ) {
-					doc = elem.documentElement;
+					doc = elem.postElement;
 
 					// Either scroll[Width/Height] or offset[Width/Height] or client[Width/Height],
 					// whichever is greatest

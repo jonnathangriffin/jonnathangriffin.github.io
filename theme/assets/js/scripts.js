@@ -19,7 +19,7 @@
 	/**
 	 * Post content manipulations
 	 */
-	$( document ).ready( function() {
+	$( post ).ready( function() {
 		$( '.js-post' ).find( 'table' ).wrap( '<div class="o-responsive-table"></div>' );
 	} );
 }( jQuery ) );

@@ -18,17 +18,17 @@
 					<div class="o-col-3@lg o-offset-1@lg o-offset-2@xl">
 						<ul class="c-page-nav u-sticky u-pin-t-6 u-mt-4 u-mt-1@lg u-mb-1 u-mb-4@lg">
 							{% assign post = site.post | sort: 'order' %}
-							{% for document in post %}
-								{% if page.order >= document.order %}
+							{% for post in post %}
+								{% if page.order >= post.order %}
 									<li class="is-active">
-										<a href="{{ document.url }}">
-											<p class="c-page-nav__heading">{{ document.title }}</p>
+										<a href="{{ post.url }}">
+											<p class="c-page-nav__heading">{{ post.title }}</p>
 										</a>
 									</li>
 								{% else %}
 									<li>
-										<a href="{{ document.url }}">
-											<p class="c-page-nav__heading">{{ document.title }}</p>
+										<a href="{{ post.url }}">
+											<p class="c-page-nav__heading">{{ post.title }}</p>
 										</a>
 									</li>
 								{% endif %}
@@ -49,13 +49,13 @@
 				<div class="o-col-12 u-text-center">
 					<div class="u-inline-block u-flex@sm">
 						{% assign post = site.post | sort: 'order' %}
-						{% for document in post %}
-							{% assign next_document = document.order | minus: 1 %}
-							{% assign previous_document = document.order | plus: 1 %}
-							{% if next_document == page.order %}
-								<a href="{{ document.url }}" class="c-arrow-link c-arrow-link--next u-ml-auto">{{ document.title }}</a>
-							{% elsif previous_document == page.order %}
-								<a href="{{ document.url }}" class="c-arrow-link c-arrow-link--prev u-mr-auto">{{ document.title }}</a>
+						{% for post in post %}
+							{% assign next_post = post.order | minus: 1 %}
+							{% assign previous_post = post.order | plus: 1 %}
+							{% if next_post == page.order %}
+								<a href="{{ post.url }}" class="c-arrow-link c-arrow-link--next u-ml-auto">{{ post.title }}</a>
+							{% elsif previous_post == page.order %}
+								<a href="{{ post.url }}" class="c-arrow-link c-arrow-link--prev u-mr-auto">{{ post.title }}</a>
 							{% endif %}
 						{% endfor %}
 					</div>
