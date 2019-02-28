@@ -1,6 +1,6 @@
 ---
 # Page settings
-layout: homepage # Choose layout: "default", "homepage" or "documentation-archive"
+layout: homepage # Choose layout: "default", "homepage" or "post-archive"
 title: # Define a title of your page
 description: # Define a description of your page
 keywords: # Define keywords for search engines
@@ -17,7 +17,7 @@ hero:
           style: filled # Choose style: "filled" or "bordered"
           icon: github # Choose from 266 icons in "Feather" icon set, list of all icons is available here - https://feathericons.com
         - label: Button — Bordered with icon
-          url: /documentation
+          url: /post
           external_url: false
           style: bordered
           icon: gitlab
@@ -62,7 +62,7 @@ features:
               style: filled # Choose style: "filled" or "bordered"
               icon: # Choose from 266 icons in "Feather" icon set, list of all icons is available here - https://feathericons.com
             - label: Button — Bordered
-              url: /documentation
+              url: /post
               external_url: false
               style: bordered
               icon:

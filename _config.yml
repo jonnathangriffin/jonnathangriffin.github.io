@@ -14,8 +14,8 @@ jg:
             - item_name: Default Layout
               item_url: /default
         cta:
-            label: Documentation
-            url: /documentation
+            label: post
+            url: /post
             icon: folder # Choose from 266 icons in "Feather" icon set, list of all icons is available here - https://feathericons.com
     footer:
         logo:
@@ -29,7 +29,7 @@ jg:
 
 # Defining collections
 collections:
-    documentation:
+    post:
         output: true
 
 # Defining defaults
@@ -37,9 +37,9 @@ defaults:
     -
         scope:
             path: ''
-            type: 'documentation'
+            type: 'post'
         values:
-            layout: 'documentation-single'
+            layout: 'post-single'
 
 # SASS settings
 sass:
