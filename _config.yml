@@ -9,10 +9,8 @@ jg:
             text: Jonnathan Griffin
             image:
         nav:
-            - item_name: Homepage
-              item_url: /
-            - item_name: Default Layout
-              item_url: /default
+            - item_name: Favorite Links
+              item_url: /links
         cta:
             label: post
             url: /post
