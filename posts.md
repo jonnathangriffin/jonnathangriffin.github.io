@@ -1,12 +1,12 @@
 ---
 # Page settings
 layout: post-archive # Choose layout: "default", "homepage" or "post-archive"
-title: post # Define a title of your page
+title: posts # Define a title of your page
 description: # Define a description of your page
 keywords: # Define keywords for search engines
 
 # Hero section
 hero:
-    title: Hero section — Title
-    text: Hero section — Text
+    title: Posts from Jonnathan
+    text: Security related goodies from topics around cloud and cyber security
 ---
