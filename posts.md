@@ -7,6 +7,6 @@ keywords: # Define keywords for search engines
 
 # Hero section
 hero:
-    title: Posts from Jonnathan
-    text: Security related goodies from topics around cloud and cyber security
+    title: Posts
+    text: Security, cloud, cyber security, and development
 ---
