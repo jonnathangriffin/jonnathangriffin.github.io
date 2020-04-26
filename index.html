@@ -1,0 +1,42 @@
+---
+layout: default
+title: Jonnathan Griffin
+description: Jonnathan Griffin is a security engineer located in Oslo, Norway - specialized in implementing DevSecOps within small and large companies.
+featured_image: /images/jonnathangriffin.jpg
+---
+
+<section class="intro">
+
+	<div class="wrap">
+
+		<h1>Security Engineer</h1>
+		<p>Oslo, Norway 🇳🇴</p>
+
+		<img src="{{ site.data.settings.basic_settings.homepage_image }}">
+	</div>
+
+</section>
+
+<section class="portfolio">
+
+	<div class="content-wrap portfolio-wrap">
+
+		{% for travel in site.travels reversed %}
+
+		<div class="portfolio-item">
+
+			<a class="portfolio-item__link" href="{{ travel.url }}">
+
+				<div class="portfolio-item__image">
+					<p class="portfolio-item__subtitle">{{ travel.title}}</p>
+				</div>
+
+			</a>
+
+		</div>
+
+		{% endfor %}
+
+	</div>
+
+</section>
