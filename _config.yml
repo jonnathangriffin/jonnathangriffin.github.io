@@ -8,13 +8,13 @@ jg:
         logo:
             text: Jonnathan Griffin
             image:
-        nav:
-            - item_name: favorite links
-              item_url: /links
-        cta:
-            label: posts
-            url: /posts
-            icon: lock # Choose from 266 icons in "Feather" icon set, list of all icons is available here - https://feathericons.com
+        # nav:
+        #     # - item_name: favorite links
+        #     #   item_url: /links
+        # cta:
+        #     label: posts
+        #     url: /posts
+        #     icon: lock # Choose from 266 icons in "Feather" icon set, list of all icons is available here - https://feathericons.com
     footer:
         logo:
             text: security is a journey, not a destination

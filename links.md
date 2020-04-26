@@ -1,4 +1,4 @@
----
+<!-- ---
 # Page settings
 layout: default # Choose layout: "default", "homepage" or "post-archive"
 title: My favorite links # Define a title of your page
@@ -8,4 +8,4 @@ comments: false # Set to "true" in order to enable comments on this page. Make s
 ---
 
 - [testing](google.com)
-- Something about this [woohps](testing.com)
+- Something about this [woohps](testing.com) -->

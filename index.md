@@ -9,13 +9,13 @@ keywords: # Define keywords for search engines
 hero:
     title: Security Engineer
     text: Oslo Norway
-    background_image: # Paste image URL to display image in background of hero section
+    background_image: https://www.jonnygrifff.no/images/2019-svalbard/01.jpg
     buttons: # Add buttons below, there are examples with all available options
-        - label: links
-          url: /links
-          external_url: false # Set to "false" if you're pointing to inner page
-          style: filled # Choose style: "filled" or "bordered"
-          icon:  # Choose from 266 icons in "Feather" icon set, list of all icons is available here - https://feathericons.com
+        # - label: links
+        #   url: /links
+        #   external_url: false # Set to "false" if you're pointing to inner page
+        #   style: filled # Choose style: "filled" or "bordered"
+        #   icon:  # Choose from 266 icons in "Feather" icon set, list of all icons is available here - https://feathericons.com
         - label: linkedin
           url: https://www.linkedin.com/in/jonnathangriffin
           external_url: true
@@ -26,20 +26,20 @@ hero:
         url: 
 
 # Features section
-features:
-    rows: # Add feature rows below, there are examples with all available options
-        - title: Employment History
-          description: Professional work history
-          grid: # Add feature grid items below, there are examples with all available options
-              - title: Working Group Two
-                description: Security Engineer - Telecom - DevSecOps
-                icon: box # Choose from 266 icons in "Feather" icon set, list of all icons is available here - https://feathericons.com
-              - title: Telenor Digital
-                description: Security Engineer
-                icon: server
-              - title: Goldman Sachs
-                description: Platform Engineer
-                icon: cpu
+# features:
+#     rows: # Add feature rows below, there are examples with all available options
+#         - title: Employment History
+#           description: Professional work history
+#           grid: # Add feature grid items below, there are examples with all available options
+#               - title: Working Group Two
+#                 description: Security Engineer - Telecom - DevSecOps
+#                 icon: box # Choose from 266 icons in "Feather" icon set, list of all icons is available here - https://feathericons.com
+#               - title: Telenor Digital
+#                 description: Security Engineer
+#                 icon: server
+#               - title: Goldman Sachs
+#                 description: Platform Engineer
+#                 icon: cpu
     #     - title: Features row 2 — Title
     #       description: Features row 2 — Description
     #       grid:
