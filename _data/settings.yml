@@ -9,8 +9,8 @@ header_settings:
 
 menu_settings:
   menu_items:
-    - title: 'about'
-      url: '/about'
+    # - title: 'about'
+    #   url: '/about'
     - title: 'linkedin'
       url: 'https://www.linkedin.com/in/jonnathangriffin/'
 
