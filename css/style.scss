@@ -35,6 +35,7 @@ $error-color: {{ site.data.settings.color_settings.error_color }};
 
 $body-font: {{ site.data.settings.font_settings.body_font }};
 $title-font: {{ site.data.settings.font_settings.title_font }};
+$footer-font: {{ site.data.settings.font_settings.footer_font }};
 
 $regular-weight: {{ site.data.settings.font_settings.regular_weight }};
 $bold-weight: {{ site.data.settings.font_settings.bold_weight }};
@@ -140,6 +141,9 @@ $grid-spacing: {{ site.data.settings.grid_settings.grid_spacing }}px;
 // - - - - - - - - - - Global styles
 
 @import "_basic";
+@import "github-markdown.scss";
+@import "_includes/_flex";
+@import "_includes/_home";
 
 @import "_includes/_header";
 @import "_includes/_footer";
@@ -151,10 +155,9 @@ $grid-spacing: {{ site.data.settings.grid_settings.grid_spacing }}px;
 @import "_includes/_contact-form";
 
 
-
 // - - - - - - - - - - Section styles
 
-@import "_includes/_portfolio";
+// @import "_includes/_portfolio";
 @import "_includes/_blog";
 
 

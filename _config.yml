@@ -7,9 +7,9 @@ collections:
   # posts:
   #   output: true
   #   permalink: /blog/:slug
-  travels:
+  posts:
     output: true
-    permalink: /blog/:slug
+    permalink: /post/:slug
 
 defaults:
   -
@@ -29,12 +29,6 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-  -
-    scope:
-      path: ""
-      type: "travels"
-    values:
-      layout: "travel"
 
 markdown: kramdown
 

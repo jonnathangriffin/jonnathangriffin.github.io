@@ -5,15 +5,13 @@ layout: default
 <section class="intro">
 
 	<div class="wrap">
-
-		<h1>{{ page.title }}</h1>
-		<p>{{ page.date | date_to_long_string }}</p>
+		
+		<h1 class="post-header">{{ page.title }}</h1>
 
 	</div>
-
 </section>
 
-<section class="single">
+<section class="single markdown-body white-background">
 
 	{{ page.content }}
 

@@ -6,37 +6,54 @@ featured_image: /images/jonnathangriffin.jpg
 ---
 
 <section class="intro">
-
 	<div class="wrap">
-
-		<h1>Security Engineer</h1>
-		<p>Oslo, Norway 🇳🇴</p>
-
+		<b><h1>Passions within</h1></b>
+		<h1>Entrepreneurship, Investing, Mentoring, Photography, Security Engineering, Cloud Native</h1>
 		<img src="{{ site.data.settings.basic_settings.homepage_image }}">
 	</div>
-
 </section>
 
+
 <!-- <section class="portfolio">
-
 	<div class="content-wrap portfolio-wrap">
-
-		{% for travel in site.travels reversed %}
-
+		{% for post in site.posts reversed %}
 		<div class="portfolio-item">
-
-			<a class="portfolio-item__link" href="{{ travel.url }}">
-
+			<a class="portfolio-item__link" href="{{ post.url }}">
 				<div class="portfolio-item__index">
-					<p class="portfolio-item__subtitle">{{ travel.title}} </p><p>{{ travel.subtitle }}</p></li>
+					<p class="portfolio-item__subtitle" onclick="accordion('{{ post.title}}')">{{ post.title}} </p>
+					<section id="{{ post.title}}" class="hide">{{ post.content}}</section>
 				</div>
-
 			</a>
-
 		</div>
-
 		{% endfor %}
-
 	</div>
-
 </section> -->
+
+<section class="border">
+	<div class="flex-container">
+		{% for post in site.posts reversed %}
+			<a class="home-item__link" href="{{ post.url }}">
+				<div class="home-item__index">
+					<p class="home-item__subtitle lineheighthome" onclick="accordion('{{ post.title}}')">{{ post.title}} </p>
+					<!-- <section id="{{ post.title}}" class="hide">{{ post.content}}</section> -->
+				</div>
+			</a>
+		{% endfor %}
+	</div>
+</section>
+
+<section class="border">
+	<div class="parent">
+		<a><div class="item">1</div></a>
+		<a><div class="item">2</div></a>
+		<a><div class="item">1</div></a>
+		<a><div class="item">234234</div></a>
+		<a><div class="item">1</div></a>
+		<a><div class="item">2</div></a>
+		<a><div class="item">1</div></a>
+		<a><div class="item">2</div></a>
+		<a><div class="item">1</div></a>
+		<a><div class="item">2</div></a>
+		<a><div class="item">9981</div></a>
+	</div>
+</section>
