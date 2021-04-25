@@ -15,7 +15,7 @@ featured_image: /images/jonnathangriffin.jpg
 
 
 <section class="border">
-	<h1 class="right">Book reviews</h1>
+	<h1 class="right header-color">BOOK REVIEWS</h1>
 	<div class="flex-container">
 		{% for post in site.posts reversed %}
 			<a class="home-item__link" href="{{ post.url }}">
@@ -23,6 +23,20 @@ featured_image: /images/jonnathangriffin.jpg
 					<p class="home-item__subtitle lineheighthome" onclick="accordion('{{ post.title}}')">{{ post.title}} </p>
 				</div>
 			</a>
+		{% endfor %}
+	</div>
+</section>
+
+<section class="border">
+	<h1 class="right header-color">PROJECTS</h1>
+	<div class="flex-container">
+		{% for project in site.projects reversed %}
+		<a class="home-item__link"  target="_blank" rel=“noreferrer noopener” href="{{ project.external_link }}"> 
+			<div class="home-item__index">
+				<p class="home-item__subtitle lineheighthome" onclick="accordion('{{ project.title}}')">{{ project.title}}
+				</p>
+			</div>
+		</a>
 		{% endfor %}
 	</div>
 </section>

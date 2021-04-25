@@ -87,6 +87,10 @@
 .right {
   margin-left: 10px;
 }
+
+.header-color {
+  color: $text_light_color;
+}
 /* animations */
 @keyframes revealBlock {
   100% {
