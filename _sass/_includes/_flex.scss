@@ -25,8 +25,8 @@
     max-width: 90%;
     padding: 5%;
     margin: 5%;
-    border-style: dashed;
-    color: black;
+    background-color: $background_alt_color;
+    border-radius: 25px;
 }
 .flex-container {
     display: -ms-flexbox;

@@ -57,19 +57,35 @@ social_settings:
   bandcamp_url: ''
   linkedin_url: ''
 
+# raycast
 color_settings:
-  # background_color: '#fafafa'
-  background_color: '#FCDA27'
-  background_alt_color: '#000'
-  text_dark_color: '#24292e'
-  text_medium_color: '#24292e'
-  text_light_color: '#2A2F36'
-  accent_color: '#FCDA27'
-  border_color: '#dddddd'
-  overlay_background_color: '#000000' #'#F2784B'
-  overlay_text_color: '#ffffff'
-  overlay_accent_color: '#2A2F36'
-  error_color: '#D64541'
+  background_color: '#010100'
+  background_alt_color: '#18191A'
+  text_dark_color: '#626363'
+  text_medium_color: '#626363'
+  text_light_color: '#F5F5F6'
+  accent_color: '#FF6060'
+  border_color: '#101213'
+  overlay_background_color: '#18191A' #'#F2784B'
+  overlay_text_color: '#18191A'
+  overlay_accent_color: '#18191A'
+  error_color: '#FF6060'
+
+#yellow background
+# color_settings:
+#   # background_color: '#fafafa'
+#   background_color: '#FCDA27'
+#   background_alt_color: '#000'
+#   text_dark_color: '#24292e'
+#   text_medium_color: '#24292e'
+#   text_light_color: '#2A2F36'
+#   accent_color: '#FCDA27'
+#   border_color: '#dddddd'
+#   overlay_background_color: '#000000' #'#F2784B'
+#   overlay_text_color: '#ffffff'
+#   overlay_accent_color: '#2A2F36'
+#   error_color: '#D64541'
+
 
 font_settings:
   # font_embed: '<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100,700&display=swap" rel="stylesheet">'
