@@ -144,6 +144,7 @@ $grid-spacing: {{ site.data.settings.grid_settings.grid_spacing }}px;
 @import "github-markdown.scss";
 @import "_includes/_flex";
 @import "_includes/_home";
+@import "_includes/_rotating";
 
 @import "_includes/_header";
 @import "_includes/_footer";

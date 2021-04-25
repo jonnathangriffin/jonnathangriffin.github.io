@@ -6,4 +6,3 @@ description: Exploring the beautiful city of Oslo in spring. What better way tha
 # featured_image: '/images/2020-springioslo/01.jpg'
 ---
 
-Coming soon
