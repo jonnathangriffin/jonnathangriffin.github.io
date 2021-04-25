@@ -30,7 +30,13 @@
     border-radius: 25px;
 }
 .center {
-  text-align: center!important;
+  // text-align: center!important;
+  color:$text_light_color;
+  font-weight:100;
+  font-family: Arial, Helvetica, sans-serif;
+  font-stretch: expanded;
+  line-height: 2;
+  letter-spacing: 0em;
 }
 .border-colored {
     max-width: 90%;
@@ -39,9 +45,10 @@
     margin-right: 5%;
     background: rgb(28,51,78);
     background: linear-gradient(90deg, rgba(28,51,78,1) 58%, rgba(148,38,87,1) 100%);
-    border-top-right-radius: 25px;
-    border-bottom-right-radius: 25px;
+    // border-top-right-radius: 25px;
+    // border-bottom-right-radius: 25px;
 }
+
 .colored {
   background: rgb(28,51,78);
   background: linear-gradient(90deg, rgba(28,51,78,1) 28%, rgba(148,38,87,1) 77%);

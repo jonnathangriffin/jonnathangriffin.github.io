@@ -1,8 +1,8 @@
 ---
 title: 'THINK AND GROW RICH'
-keywords: 'more here now'
+keywords: 'book review'
 date: 2020-04-26 00:00:00
-description: Exploring the beautiful city of Oslo in spring. What better way than taking photos of cherry blossoms. 
+description: Having a good mind, finite goals, desire, passion, and persistance one can achieve anything. Essentially, create a goal and tell yourself this goal every day and one will be able to achieve this. Without a goal and without the will and plan for achieving such goals one will always fail. Don't get into the trap of telling someone the goal before actually achieving the goal. Show it, not tell it. Like Edison, don't give up because that 10,001 time - a light bulb will be created. Only you are the one that can achieve your goal. Surround yourself with like-minded people that can assist with your goal. 
 # featured_image: '/images/2020-springioslo/01.jpg'
 ---
 
