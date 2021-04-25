@@ -29,6 +29,23 @@
     background-color: $background_alt_color;
     border-radius: 25px;
 }
+.center {
+  text-align: center!important;
+}
+.border-colored {
+    max-width: 90%;
+    padding: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    background: rgb(28,51,78);
+    background: linear-gradient(90deg, rgba(28,51,78,1) 58%, rgba(148,38,87,1) 100%);
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+.colored {
+  background: rgb(28,51,78);
+  background: linear-gradient(90deg, rgba(28,51,78,1) 28%, rgba(148,38,87,1) 77%);
+}
 .flex-container {
     display: -ms-flexbox;
     display: -webkit-flex;
@@ -48,4 +65,4 @@
     -webkit-align-items: flex-start;
     -ms-flex-align: start;
     align-items: flex-start;
-    }
+}

@@ -477,14 +477,13 @@ section {
 }
 
 .post-header {
-	// background-color: #2A2F36;
-	// box-shadow: 5px 5px #984692;
-	color: $accent-color;
+	color: $text_light_color;
 	font-size: $grid-item-subtitle-small;
 	font-weight: $grid-item-subtitle-weight;
 	letter-spacing: $grid-item-subtitle-spacing;
 	text-align: center;
-	padding: 16px 30px 14px;
+	// padding: 16px 30px 14px;
+	padding: 30px;
 }
 
 .one {

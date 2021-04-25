@@ -12,7 +12,6 @@ collections:
     permalink: /post/:slug
   projects:
     output: true
-    permalink: /project/:slug
 
 defaults:
   -
