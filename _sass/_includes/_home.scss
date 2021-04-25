@@ -84,7 +84,9 @@
   animation: revealingIn var(--td) var(--d) forwards, revealingOut var(--td) var(--t) forwards;
 }
 
-
+.right {
+  margin-left: 10px;
+}
 /* animations */
 @keyframes revealBlock {
   100% {

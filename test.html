@@ -1,0 +1,95 @@
+---
+layout: default
+title: Jonnathan Griffin
+description: Jonnathan Griffin is a security engineer located in Oslo, Norway - specialized in implementing DevSecOps within small and large companies.
+featured_image: /images/jonnathangriffin.jpg
+---
+
+<section class="intro">
+	<div class="wrap">
+		<b><h1>Passions within</h1></b>
+		<div class="rw-words rw-words-1">
+			<span>Entrepreneurship</span>
+			<span>Investing</span>
+			<span>Mentoring</span>
+			<span>Photography</span>
+			<span>Security Engineering</span>
+			<span>Cloud Native</span>
+		</div>
+		<!-- <h1>Entrepreneurship, Investing, Mentoring, Photography, Security Engineering, Cloud Native</h1> -->
+		<img src="{{ site.data.settings.basic_settings.homepage_image }}">
+	</div>
+</section>
+
+
+<!-- <section class="portfolio">
+	<div class="content-wrap portfolio-wrap">
+		{% for post in site.posts reversed %}
+		<div class="portfolio-item">
+			<a class="portfolio-item__link" href="{{ post.url }}">
+				<div class="portfolio-item__index">
+					<p class="portfolio-item__subtitle" onclick="accordion('{{ post.title}}')">{{ post.title}} </p>
+					<section id="{{ post.title}}" class="hide">{{ post.content}}</section>
+				</div>
+			</a>
+		</div>
+		{% endfor %}
+	</div>
+</section> -->
+
+<section class="border">
+	<div class="flex-container">
+		{% for post in site.posts reversed %}
+			<a class="home-item__link" href="{{ post.url }}">
+				<div class="home-item__index">
+					<p class="home-item__subtitle lineheighthome" onclick="accordion('{{ post.title}}')">{{ post.title}} </p>
+					<!-- <section id="{{ post.title}}" class="hide">{{ post.content}}</section> -->
+				</div>
+			</a>
+		{% endfor %}
+	</div>
+</section>
+
+<section class="border">
+	<div class="parent">
+		<a><div class="item">1</div></a>
+		<a><div class="item">2</div></a>
+		<a><div class="item">1</div></a>
+		<a><div class="item">234234</div></a>
+		<a><div class="item">1</div></a>
+		<a><div class="item">2</div></a>
+		<a><div class="item">1</div></a>
+		<a><div class="item">2</div></a>
+		<a><div class="item">1</div></a>
+		<a><div class="item">2</div></a>
+		<a><div class="item">9981</div></a>
+	</div>
+</section>
+
+<section class="block-effect" style="--td: 1.2s">
+	<div class="block-reveal" style="--bc: #4040bf; --d: .1s">Block</div>
+	<div class="block-reveal" style="--bc: #bf4060; --d: .5s">Revealing Effect</div>
+</section>
+
+<!-- <section class="rw-wrapper"> -->
+	<h2 class="vc_custom_heading desingforlife-head">
+		<span>CONCEPTS THAT</span>
+		<div class="rw-words rw-words-1">
+			<span>INSPIRE</span>
+			<span>COOL</span>
+			<span>WONDER</span>
+			<span>SPICE</span>
+			<span>HAPPINESS</span>
+			<span>COLORS</span>
+		</div>
+	</h2>
+<!-- </section> -->
+
+<div class="rw-words rw-words-1">
+	<span>INSPIRE</span>
+	<span>COOL</span>
+	<span>WONDER</span>
+	<span>SPICE</span>
+	<span>HAPPINESS</span>
+	<span>COLORS</span>
+</div>
