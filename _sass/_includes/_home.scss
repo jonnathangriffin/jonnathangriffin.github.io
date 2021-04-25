@@ -23,8 +23,8 @@
 	// background: rgba($overlay-background-color, $overlay-opacity);
 	&:hover {
 		@include transition(all 0.35s ease-in-out);
-		background-color: #2A2F36;
-		box-shadow: 5px 5px #984692;
+		// background-color: #2A2F36;
+		// box-shadow: 5px 5px #984692;
 	}
 }
 

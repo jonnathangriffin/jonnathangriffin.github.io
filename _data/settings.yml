@@ -91,7 +91,7 @@ font_settings:
   # font_embed: '<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100,700&display=swap" rel="stylesheet">'
   font_embed: '<link rel="preconnect" href="https://fonts.gstatic.com"><link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;700&family=Roboto:wght@100;300&display=swap" rel="stylesheet">'
   title_font: '"IBM Plex Mono", monospace'
-  body_font: '"Arial", sans-serif'
+  body_font: 'Arial, Helvetica, sans-serif'
   # custom font in _basic.scss
   footer_font: '"jonnygrifff", Courier, monospace'
   regular_weight: 400
