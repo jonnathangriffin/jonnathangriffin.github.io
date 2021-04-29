@@ -146,6 +146,7 @@ $grid-spacing: {{ site.data.settings.grid_settings.grid_spacing }}px;
 @import "_includes/_box";
 @import "_includes/_home";
 @import "_includes/_rotating";
+@import "_includes/_griffin";
 
 @import "_includes/_header";
 @import "_includes/_footer";

@@ -1,0 +1,25 @@
+.letter {
+    text-align : center;
+    font-size  : 4em;
+    margin     : 0;
+    font-weight: bold;
+    color      : white;
+    line-height: 0.55;
+    font-family: "Times New Roman", Times, serif;
+}
+
+@keyframes bounce {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(0, -10px, 0);
+    }
+}
+
+.bounce {
+    animation                : bounce 0.6s;
+    animation-iteration-count: infinite;
+    animation-direction      : alternate;
+}
