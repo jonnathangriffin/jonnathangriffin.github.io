@@ -41,13 +41,18 @@
 
 	@include mq(tabletp) {
 		font-size: $grid-item-subtitle-medium;
-	}
+  }
 
 	@include mq(laptop) {
-		font-size: $grid-item-subtitle-large;
-	}
+		font-size: $grid-item-subtitle-large;	
+  }
 }
 
+@media only screen and (max-width: 400px) {
+  .home-item__subtitle  {
+    font-size: 20px;
+  }
+}
 
 // https://codepen.io/AbubakerSaeed/pen/abzWqPb
 
